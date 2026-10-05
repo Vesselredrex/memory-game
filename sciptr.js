@@ -32,3 +32,13 @@ const app = document.createElement("div");
 app.classList.add("app");
 
 document.body.prepend(app);
+
+const header = document.createElement("header");
+
+header.classList.add("header");
+
+newGameButton.type = "button";
+
+newGameButton.textContent = "New Game";
+
+newGameButton.classList.add("header-button");
