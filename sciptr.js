@@ -42,3 +42,21 @@ newGameButton.type = "button";
 newGameButton.textContent = "New Game";
 
 newGameButton.classList.add("header-button");
+
+const leaderboardButton = document.createElement("button");
+
+leaderboardButton.type = "button";
+
+leaderboardButton.textContent = "High-score table";
+
+leaderboardButton.classList.add("header-button");
+
+header.append(newGameButton, leaderboardButton);
+
+app.append(header);
+
+const main = document.createElement("main");
+
+main.classList.add("main");
+
+app.append(main);
