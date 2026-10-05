@@ -13,20 +13,16 @@ const cardsData = [...cardImages, ...cardImages]; // Duplicate the images for pa
 
 const TOTAL_PAIRS = cardImages.length;
 
-const MISMATCH_DELAY = 1000;
-
-const STORAGE_KEY = "memoryGameResults";
-
 let firstCard = null;
+
 let secondCard = null;
 
 let moves = 0;
-let matchedPairs = 0;
 
-let isGameStarted = false;
+let matchedPairs = 0;
 
 let isBoardLocked = false;
 
-let closeCardsTimer = null;
+let isGameFinished = false;
 
-const header = document.createElement("header");
+let closeCardsTimer = null;
