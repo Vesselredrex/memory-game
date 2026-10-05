@@ -11,14 +11,21 @@ const cardImages = [
 
 const cardsData = [...cardImages, ...cardImages]; // Duplicate the images for pairs 05.10
 
+const TOTAL_PAIRS = cardImages.length;
+
+const MISMATCH_DELAY = 1000;
+
+const STORAGE_KEY = "memoryGameResults";
+
 let firstCard = null;
 let secondCard = null;
 
 let moves = 0;
 let matchedPairs = 0;
 
-let isBoardLocked = false;
 let isGameStarted = false;
+
+let isBoardLocked = false;
 
 let closeCardsTimer = null;
 
