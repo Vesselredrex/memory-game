@@ -60,3 +60,19 @@ const main = document.createElement("main");
 main.classList.add("main");
 
 app.append(main);
+
+const counters = document.createElement("div");
+
+counters.classList.add("counters");
+
+const movesCounter = document.createElement("p");
+
+movesCounter.classList.add("counter");
+
+const pairsCounter = document.createElement("p");
+
+pairsCounter.classList.add("counter");
+
+counters.append(movesCounter, pairsCounter);
+
+main.append(counters);
