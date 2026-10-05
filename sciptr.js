@@ -76,3 +76,11 @@ pairsCounter.classList.add("counter");
 counters.append(movesCounter, pairsCounter);
 
 main.append(counters);
+
+const gameBoard = document.createElement("div");
+
+gameBoard.classList.add("game-board");
+
+gameBoard.setAttribute("aria-label", "Memory game board");
+
+main.append(gameBoard);
