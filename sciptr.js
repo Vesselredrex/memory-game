@@ -84,3 +84,15 @@ gameBoard.classList.add("game-board");
 gameBoard.setAttribute("aria-label", "Memory game board");
 
 main.append(gameBoard);
+
+const modalOverlay = document.createElement("div");
+
+modalOverlay.classList.add("modal-overlay");
+
+const modal = document.createElement("div");
+
+modal.classList.add("modal");
+
+modalOverlay.append(modal);
+
+app.after(modalOverlay);
