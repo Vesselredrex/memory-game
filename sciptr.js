@@ -26,3 +26,9 @@ let isBoardLocked = false;
 let isGameFinished = false;
 
 let closeCardsTimer = null;
+
+const app = document.createElement("div");
+
+app.classList.add("app");
+
+document.body.prepend(app);
