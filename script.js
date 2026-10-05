@@ -1,65 +1,56 @@
 const cardImages = [
-    "./assets/cat.png",
-    "./assets/dog.png",
-    "./assets/fox.png",
-    "./assets/panda.png",
-    "./assets/lion.png",
-    "./assets/rabbit.png",
-    "./assets/bear.png",
-    "./assets/koala.png",
-  ];
-  
-  const cardsData = [
-    ...cardImages,
-    ...cardImages,
-  ];
-  
-  const TOTAL_PAIRS = cardImages.length;
-  
-  const MISMATCH_DELAY = 1000;
-  
-  const STORAGE_KEY = "memoryGameResults";
-  
-  let firstCard = null;
-  let secondCard = null;
-  
-  let moves = 0;
-  let matchedPairs = 0;
-  
-  let isBoardLocked = false;
-  let isGameFinished = false;
-  
-  let closeCardsTimer = null;
-  
-  const app = document.createElement("div");
-  
-  app.classList.add("app");
-  
-  document.body.prepend(app);
+  "./assets/cat.png",
+  "./assets/dog.png",
+  "./assets/fox.png",
+  "./assets/panda.png",
+  "./assets/lion.png",
+  "./assets/rabbit.png",
+  "./assets/bear.png",
+  "./assets/koala.png",
+];
 
-  const header = document.createElement("header");
-  
-  header.classList.add("header");
+const cardsData = [...cardImages, ...cardImages];
 
-  const newGameButton = document.createElement("button");
+const TOTAL_PAIRS = cardImages.length;
+const MISMATCH_DELAY = 1000;
+const STORAGE_KEY = "memoryGameResults";
 
-  newGameButton.type = "button";
-  
-  newGameButton.textContent = "New game";
+let firstCard = null;
+let secondCard = null;
 
-  newGameButton.classList.add("header-button");
+let moves = 0;
+let matchedPairs = 0;
 
-  const leaderboardButton = document.createElement("button");
+let isBoardLocked = false;
+let isGameFinished = false;
 
-  leaderboardButton.type = "button";
+let closeCardsTimer = null;
 
-  leaderboardButton.textContent = "High-score table";
+const app = document.createElement("div");
 
-  leaderboardButton.classList.add("header-button");
+app.classList.add("app");
 
-  header.append(newGameButton, leaderboardButton);
+document.body.prepend(app);
 
-  app.append(header);
+const header = document.createElement("header");
+
+header.classList.add("header");
+
+const newGameButton = document.createElement("button");
+
+newGameButton.type = "button";
+newGameButton.textContent = "New game";
+newGameButton.classList.add("header-button");
+
+const leaderboardButton = document.createElement("button");
+
+leaderboardButton.type = "button";
+leaderboardButton.textContent = "High-score table";
+leaderboardButton.classList.add("header-button");
+
+header.append(newGameButton, leaderboardButton);
+
+app.append(header);
 
 const main = document.createElement("main");
 
@@ -129,7 +120,6 @@ function createCard(imagePath) {
   const image = document.createElement("img");
 
   image.src = imagePath;
-
   image.alt = "Memory card";
 
   image.draggable = false;
@@ -146,7 +136,6 @@ function createCard(imagePath) {
 }
 
 function renderCards() {
-
   gameBoard.replaceChildren();
 
   const shuffledCards = shuffleCards(cardsData);
@@ -159,7 +148,6 @@ function renderCards() {
 }
 
 function handleCardClick(card) {
-
   if (isBoardLocked) {
     return;
   }
@@ -167,7 +155,6 @@ function handleCardClick(card) {
   if (isGameFinished) {
     return;
   }
-
 
   if (card.classList.contains("is-open")) {
     return;
@@ -189,7 +176,6 @@ function handleCardClick(card) {
 
   secondCard = card;
 
-rd.
   moves++;
 
   updateCounters();
@@ -209,11 +195,9 @@ function checkCards() {
 
 function handleMatch() {
   firstCard.classList.remove("is-open");
-
   secondCard.classList.remove("is-open");
 
   firstCard.classList.add("is-matched");
-
   secondCard.classList.add("is-matched");
 
   firstCard.setAttribute("aria-label", "Matched memory card");
@@ -236,7 +220,6 @@ function handleMismatch() {
 
   closeCardsTimer = setTimeout(() => {
     firstCard.classList.remove("is-open");
-
     secondCard.classList.remove("is-open");
 
     firstCard.setAttribute("aria-label", "Closed memory card");
@@ -263,7 +246,6 @@ function updateCounters() {
 }
 
 function startNewGame() {
-
   if (closeCardsTimer !== null) {
     clearTimeout(closeCardsTimer);
 
@@ -273,11 +255,9 @@ function startNewGame() {
   resetSelectedCards();
 
   moves = 0;
-
   matchedPairs = 0;
 
   isBoardLocked = false;
-
   isGameFinished = false;
 
   updateCounters();
@@ -295,7 +275,7 @@ function openModal(content) {
 
 function closeModal() {
   modalOverlay.classList.remove("is-open");
-.
+
   document.body.classList.remove("modal-open");
 
   modal.replaceChildren();
@@ -342,6 +322,7 @@ function getResults() {
     return [];
   }
 }
+
 function saveResult() {
   const results = getResults();
 
@@ -349,9 +330,7 @@ function saveResult() {
 
   const result = {
     moves: moves,
-
     date: formatDate(now),
-
     timestamp: now.getTime(),
   };
 
@@ -454,7 +433,6 @@ function showLeaderboard() {
 
     content.append(message);
   } else {
-
     const table = document.createElement("table");
 
     table.classList.add("leaderboard-table");
@@ -506,7 +484,6 @@ function showLeaderboard() {
     content.append(table);
   }
 
-
   const closeButton = document.createElement("button");
 
   closeButton.type = "button";
@@ -521,7 +498,6 @@ function showLeaderboard() {
 
   openModal(content);
 }
-
 
 newGameButton.addEventListener("click", startNewGame);
 
